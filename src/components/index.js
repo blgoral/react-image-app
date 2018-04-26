@@ -2,35 +2,45 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { fetchData } from '../actions'
+import GalleryTile from './gallery_tile'
 
 class PostsIndex extends Component {
   componentDidMount(){
 
-    this.props.fetchData('memes')
+    this.props.fetchData('cats')
 
   }
 
   renderData(galleryData) {
 
     //number of elements to show on page
-    const numberToShow = 10
+    const numberToShow = 6
     galleryData.data.length = numberToShow
-    const listItem = galleryData.data.map(value => <li key={value.id}>{value.title}</li>)
+    console.log(galleryData.data)
+    const listItem = galleryData.data.map(value =>
+      <GalleryTile
+      isAlbum={value.is_album}
+      imageCover={value.cover}
+      imageId={value.id}
+      title={value.title}
+      image={value.images}
+      />)
     return(listItem)
   }
 
   render(){
 
         return (
-      //use the map method to run the renderData function for each item in the array
       <div>
         <h3>Posts</h3>
-        <ul className="list-group">
+        <div className="container">
+          <div className ="row">
           {
             //use the map method to run the renderData function for each item in the array
             this.props.posts.map(this.renderData)
           }
-        </ul>
+        </div>
+        </div>
       </div>
     )
   }
