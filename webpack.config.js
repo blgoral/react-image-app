@@ -1,15 +1,22 @@
 const Dotenv = require('dotenv-webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 
 
 module.exports = {
-  entry: [
-    './src/index.js',
-    './src/sass/style.scss'
-  ],
   plugins: [
-    new Dotenv()
-
+    new Dotenv(),
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html"
+    }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: './css/style.css' ,
+      chunkFilename: './css/[id].css'
+    })
 
   ],
   module: {
@@ -20,14 +27,21 @@ module.exports = {
         use: ['babel-loader']
       },
       {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader",
+            options: { minimize: true }
+          }
+        ]
+      },
+      {
         test: /\.(sass|scss)$/,
-        use: [{
-                loader: "style-loader" // creates style nodes from JS strings
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS
-            }]
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },

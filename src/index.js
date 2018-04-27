@@ -9,6 +9,8 @@ import promise from 'redux-promise'
 import reducers from './reducers';
 import Index from './components/'
 
+import style from './sass/style.scss'
+
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
