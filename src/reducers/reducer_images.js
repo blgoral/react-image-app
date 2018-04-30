@@ -8,8 +8,8 @@ export default function(state = [], action) {
 
 
   case FETCH_DATA:
-  
-      return [action.payload.data, ...state]
+
+      return [action.payload.data]
 
 
   default:
