@@ -11,10 +11,21 @@ $primary-color: #333;
 img {
   width: 100%;
   height: auto;
-  
+
 }
 
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+form{
+
+  width: 100%;
+}
+
+.search-bar {
+  font-size: 28px !important;
+  width: 100% !important;
+  margin: 0 !important;
 }

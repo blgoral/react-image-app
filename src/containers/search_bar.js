@@ -9,12 +9,16 @@ class SearchBar extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {term: ''}
+    this.state = {
+      term: '',
+      placeholder: 'Search for Images....'
+    }
     this.onInputChange = this.onInputChange.bind(this)
-    
+    this.onFormSubmit = this.onFormSubmit.bind(this)
+
     this.setSearchTerms = _.debounce((term) => {
       this.props.fetchData(this.state.term)
-    }, 300)
+    }, 400)
 
   }
 
@@ -25,6 +29,10 @@ class SearchBar extends Component {
     this.setState({ term: event.target.value})
   }
 
+  onFormSubmit(event) {
+    event.preventDefault()
+  }
+
 
 
   render(){
@@ -32,10 +40,9 @@ class SearchBar extends Component {
     return(
     <div>
       <nav className="navbar navbar-light bg-dark">
-      <a className="navbar-brand">Imgur Image Search</a>
-      <form className="form-inline">
-        <input className="form-control mr-sm-2" type="search" value={this.state.term} onChange={this.onInputChange} />
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+      <form className="form-inline" onSubmit={this.onFormSubmit}>
+        <input className="search-bar form-control mr-sm-2" type="search" placeholder={this.state.placeholder} value={this.state.term} onChange={this.onInputChange}/>
       </form>
     </nav>
   </div>

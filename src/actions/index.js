@@ -6,7 +6,7 @@ export const FETCH_DATA = 'fetch_data'
 
 
 
-const ROOT_URL = 'https://api.imgur.com/3/gallery/search/top/day?q='
+const ROOT_URL = 'https://api.imgur.com/3/gallery/search/top/all?q='
 //Imgur access token from .env file
 const CLIENT_ID = process.env.CLIENT_ID
 
