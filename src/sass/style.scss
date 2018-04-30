@@ -1,0 +1,20 @@
+$primary-color: #333;
+
+* {
+  padding: none;
+  margin: none;
+  background-color: $primary-color;
+} body {
+  background-color: $primary-color;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}

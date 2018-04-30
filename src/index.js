@@ -7,7 +7,7 @@ import promise from 'redux-promise'
 
 
 import reducers from './reducers';
-import Index from './components/'
+import Index from './containers/'
 
 import style from './sass/style.scss'
 

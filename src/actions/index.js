@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import axios from 'axios'
 
 export const FETCH_DATA = 'fetch_data'
@@ -16,6 +17,8 @@ export function fetchData (searchTerm) {
     headers: { 'Authorization' : `Client-ID ${CLIENT_ID}` }
 
 })
+
+
   return {
     type: FETCH_DATA,
     payload: request
