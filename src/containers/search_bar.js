@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
     this.setSearchTerms = _.debounce((term) => {
       this.props.fetchData(this.state.term)
-    }, 400)
+    }, 600)
 
   }
 
