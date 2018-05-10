@@ -6,7 +6,9 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   plugins: [
-    new Dotenv(),
+    new Dotenv({
+      systemvars: true
+    }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
