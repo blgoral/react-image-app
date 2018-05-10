@@ -4,7 +4,9 @@
   "private": "true",
   "repository": "https://github.com/blgoral/react-image-app.git",
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "dev": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "postinstall": "webpack -p",
+    "start": "node server.js",
     "build": "webpack --mode=production"
   },
   "author": "Blake Goral",
